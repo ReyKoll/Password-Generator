@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>354</width>
+    <height>456</height>
+   </rect>
+  </property>
+  <property name="font">
+   <font>
+    <family>Ubuntu</family>
+    <pointsize>11</pointsize>
+   </font>
+  </property>
+  <property name="cursor">
+   <cursorShape>PointingHandCursor</cursorShape>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color:#2E2F30</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="styleSheet">
+    <string notr="true">color:#2E2F30</string>
+   </property>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>220</y>
+      <width>281</width>
+      <height>91</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="check_layout">
+     <item>
+      <widget class="QCheckBox" name="check_number">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#ffffff</string>
+       </property>
+       <property name="text">
+        <string>Use Number</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="check_upper">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#ffffff</string>
+       </property>
+       <property name="text">
+        <string>Use Uppercase</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QCheckBox" name="check_special">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #ffffff</string>
+       </property>
+       <property name="text">
+        <string>Use Special Symbols</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>20</x>
+      <y>350</y>
+      <width>311</width>
+      <height>80</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="major_btn_ayout">
+     <item>
+      <widget class="QPushButton" name="btn_generate">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #ffffff</string>
+       </property>
+       <property name="text">
+        <string>Generate</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="btn_copy">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: #ffffff</string>
+       </property>
+       <property name="text">
+        <string>Copy</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="lbl_title">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>351</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>18</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#ffffff</string>
+    </property>
+    <property name="frameShape">
+     <enum>QFrame::NoFrame</enum>
+    </property>
+    <property name="text">
+     <string>Password Generator</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="output_pass">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>100</y>
+      <width>331</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>14</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#ffffff</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_length">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>160</y>
+      <width>121</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#ffffff</string>
+    </property>
+    <property name="text">
+     <string>Length (6 - 16)</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="spin_box_length">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>160</y>
+      <width>71</width>
+      <height>25</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>11</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#ffffff</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QLabel" name="lbl_copied">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>320</y>
+      <width>141</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Ubuntu</family>
+      <pointsize>16</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color:#ffffff</string>
+    </property>
+    <property name="text">
+     <string>Copied</string>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>150</y>
+      <width>101</width>
+      <height>56</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="mini_btn_layout">
+     <item>
+      <widget class="QPushButton" name="btn_clear">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#ffffff</string>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
