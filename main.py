@@ -1,16 +1,16 @@
 import sys
+import os
 import random
 import ctypes
 from PyQt5.QtGui import QIcon
 from ui import form
-from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtWidgets import QApplication, QMainWindow
+from PyQt5.QtWidgets import QApplication, QMainWindow, QFileDialog, QMessageBox, QLabel
 
 
 class App(QMainWindow, form.Ui_MainWindow):
     def __init__(self):
         super(App, self).__init__()
-        self.output_pass = None
+        #self.output_pass = None
         self.init_ui()
 
     def init_ui(self):
@@ -18,11 +18,12 @@ class App(QMainWindow, form.Ui_MainWindow):
         self.setWindowTitle('Password Generator')
         self.setWindowIcon(QIcon('ui/icon.ico'))
         self.setFixedSize(350, 450)
-        self.output_pass.setDisabled(True)
+        self.output_pass.setReadOnly(True)
         self.output_pass.setPlaceholderText('Your password will be here')
         self.btn_generate.clicked.connect(self.generate_password)
         self.btn_copy.clicked.connect(self.copy_to_clipboard)
         self.btn_clear.clicked.connect(self.clear_password)
+        self.btn_save.clicked.connect(self.save_to_file)
         self.spin_box_length.setMinimum(6)
         self.spin_box_length.setMaximum(16)
         self.lbl_copied.setVisible(False)
@@ -46,6 +47,19 @@ class App(QMainWindow, form.Ui_MainWindow):
         else:
             self.output_pass.setText('')
             self.lbl_copied.setVisible(False)
+
+    def save_to_file(self):
+        try:
+            if self.output_pass.text() == '':
+                QMessageBox.warning(self, 'Warning', f'Password has not generated yet')
+            else:
+                file_name = QFileDialog.getSaveFileName(self, 'Save File', os.getenv('HOME'))
+                with open(file_name[0], 'w') as file:
+                    text = self.output_pass.text()
+                    file.write(text)
+        except FileNotFoundError as e:
+            QMessageBox.warning(self, 'Error', f'File does not exist')
+            return
 
     def get_password(self):
         start_list = list('abcdefghijklmnopqrstuvwxyz')
@@ -77,4 +91,4 @@ if __name__ == "__main__":
     ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID(app_id)
     main_window = App()
     main_window.show()
-    app.exec()
+    sys.exit(app.exec_())

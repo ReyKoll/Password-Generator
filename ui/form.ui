@@ -150,7 +150,7 @@
     </property>
     <property name="font">
      <font>
-      <family>Ubuntu</family>
+      <family>Affect</family>
       <pointsize>18</pointsize>
       <bold>true</bold>
      </font>
@@ -274,6 +274,21 @@
      </rect>
     </property>
     <layout class="QVBoxLayout" name="mini_btn_layout">
+     <item>
+      <widget class="QPushButton" name="btn_save">
+       <property name="font">
+        <font>
+         <family>Ubuntu</family>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:#ffffff</string>
+       </property>
+       <property name="text">
+        <string>Save</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QPushButton" name="btn_clear">
        <property name="font">
