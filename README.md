@@ -17,8 +17,10 @@ if self.check_number.isChecked():
     start_list.extend(number_list)
 if self.check_special.isChecked():
     start_list.extend(special_list)
-elif not self.check_upper.isChecked() and self.check_number.isChecked() and self.check_special.isChecked():
-    start_list = password
+elif not self.check_upper.isChecked() and 
+    self.check_number.isChecked() and 
+    self.check_special.isChecked():
+        start_list = password
 ```
 
 ```Python
