@@ -39,6 +39,15 @@ There is another way to convert. <br>
 pyuic5 -x file.ui -o file.py
 ```
 
+## Creating .exe using cx_freeze
+For creating an .exe file to build standalone project was used [cx_freeze](https://github.com/marcelotduarte/cx_Freeze) <br>
+Settings for build located in **setup.py**.
+
+***Run a setup.py script***
+```
+ python setup.py build
+```
+
 ### Clone
 ``` 
 git clone https://github.com/ReyKoll/Password_Generator.git 
