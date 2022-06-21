@@ -16,7 +16,7 @@ class App(QMainWindow, form.Ui_MainWindow):
         # MainWindow
         self.setupUi(self)
         self.setWindowTitle('Password Generator')
-        self.setWindowIcon(QIcon('ui/icon.ico'))
+        self.setWindowIcon(QIcon('icon.ico'))
         self.setFixedSize(350, 450)
 
         # LineEdit
