@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+
+# Build artifacts
+build/
+dist/
+*.spec
+*.app
+
+# IDE
+.idea/
+
+# Icon intermediate files
+*.iconset/

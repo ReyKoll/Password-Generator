@@ -1,60 +1,48 @@
 # Password Generator
 
-This is a simple password generator based on random. 
+Кроссплатформенный генератор паролей: Python 3 + Tkinter (только стандартная библиотека).
+Works on Windows, macOS and Linux without changes.
 
-Symbols for create password choosing from 4 lists:
-+ Lower case list = abcdefghijklmnopqrstuvwxyz
-+ Upper case list = ABCDEFGHIJKLMNOPQRSTUVWXYZ
-+ List of numbers = 1234567890
-+ List of special symbols = !@#$%^&*()?-=_+[]{}
+## Возможности
 
-Main loop always using the lower case list, if user want to use other list, lower case list will extends with new list.
+- Криптографически стойкая генерация через `secrets` (вместо предсказуемого `random`)
+- Выбор наборов символов: lower case / UPPER CASE / цифры / спецсимволы
+- Опция «исключить неоднозначные символы» (O/0, l/1, I, |, кавычки, зеркальные скобки)
+- Гарантия минимум одного символа из каждой выбранной категории
+- Длина от 6 до 64 символов
+- Копирование в буфер обмена, сохранение в файл
+- Иконка приложения (ico/icns/png)
 
-```Python
-if self.check_upper.isChecked():
-    start_list.extend(upper_list)
-if self.check_number.isChecked():
-    start_list.extend(number_list)
-if self.check_special.isChecked():
-    start_list.extend(special_list)
-elif not self.check_upper.isChecked() and 
-    self.check_number.isChecked() and 
-    self.check_special.isChecked():
-        start_list = password
+## Запуск
+
+```bash
+python3 main.py
 ```
 
-```Python
-for _ in range(length):
-    password += random.choice(start_list) 
- ```
-___
+**Важно для macOS**: не используйте системный Python из CommandLineTools —
+в нём Tcl/Tk 8.5.9, который не отрисовывает окно на современных macOS.
+Нужен Python с python.org (или `brew install python-tk`):
 
-##  QT Designer for UI
-
-User Interface was created in QT Designer and converted from **.ui** to **.py** with external tool in PyCharm. 
-
-There is another way to convert. <br>
-***Use next syntax and make sure that the file.ui and pyuic5.bat are in the same location of your project***
-``` 
-pyuic5 -x file.ui -o file.py
+```bash
+python3.14 main.py   # python.org installer bundles modern Tcl/Tk
 ```
 
-## Creating .exe using cx_Freeze
-For creating an .exe file to build standalone project was used [cx_Freeze](https://github.com/marcelotduarte/cx_Freeze) <br>
-```
-pip install cx_Freeze
-``` 
-<br>
+## Отличия от исходной PyQt5-версии
 
-Settings for build located in **setup.py**.
+- Tkinter вместо PyQt5: ноль внешних зависимостей, проще сборка
+- `secrets` вместо `random`
+- Удалён недостижимый `elif` из `get_password`
+- Гарантия символов из всех выбранных категорий
+- Максимальная длина увеличена с 16 до 64
+- Корректная обработка отмены диалога сохранения
+- Убран Windows-only `ctypes.windll`, из репозитория удалена `.idea/`
 
-***Run a setup.py script***
-```
- python setup.py build
+## Сборка (PyInstaller)
+
+```bash
+pip install pyinstaller
+pyinstaller --windowed --onefile --name "Password Generator" --icon icon.icns main.py   # macOS
+pyinstaller --windowed --onefile --name "Password Generator" --icon icon.ico main.py    # Windows
 ```
 
-### Clone
-``` 
-git clone https://github.com/ReyKoll/Password_Generator.git 
-```
-___
+Готовый бандл появится в `dist/`.
