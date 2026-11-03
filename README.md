@@ -1,7 +1,6 @@
 # Password Generator
 
 Кроссплатформенный генератор паролей: Python 3 + Tkinter (только стандартная библиотека).
-Works on Windows, macOS and Linux without changes.
 
 ## Возможности
 
